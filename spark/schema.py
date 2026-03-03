@@ -1,8 +1,9 @@
-"""
-This file defines the expected schema of the streaming JSON events.
+from pyspark.sql.types import StructType, StructField, StringType, DoubleType
 
-You will use this schema in streaming_app.py to:
-- Parse raw JSON messages
-- Enable event-time processing
-- Detect malformed or incomplete records
-"""
+event_schema = StructType([
+    StructField("device_id", StringType(), True),
+    StructField("temperature", DoubleType(), True),
+    StructField("humidity", DoubleType(), True),
+    StructField("country", StringType(), True),
+    StructField("event_time", StringType(), True)
+])
